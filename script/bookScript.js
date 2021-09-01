@@ -1,5 +1,4 @@
 // javascript  cover_i
-// http://openlibrary.org/search.json?q=the+lord+of+the+rings
 const getBookName = () => {
     const bookName = document.getElementById('searchText').value;
     document.getElementById('searchText').value = '';
@@ -12,10 +11,10 @@ const searchUrl = searchText => {
 }
 const author_names = name => name;
 const showBookInfo = (count, info) => {
-    console.log(info);
     const bookBlock = document.getElementById('showDetail');
     bookBlock.textContent = '';
-    bookBlock.innerHTML = `<p> total result found:${count.numFound}</p>`
+    // bookBlock.innerHTML = `<p> total result found:${count.numFound}</p>`;
+    document.getElementById('totalFound').innerText=count.numFound;
     info.forEach(data => {
         const div = document.createElement('div');
         const authorNames = author_names(data.author_name);
@@ -38,5 +37,4 @@ const showBookInfo = (count, info) => {
         bookBlock.appendChild(div);
 
     });
-    // for (const data of info) {}
 }
