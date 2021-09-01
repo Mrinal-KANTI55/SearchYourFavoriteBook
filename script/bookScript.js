@@ -1,11 +1,12 @@
 // javascript  cover_i
+// http://openlibrary.org/search.json?q=the+lord+of+the+rings
 const getBookName = () => {
     const bookName = document.getElementById('searchText').value;
     document.getElementById('searchText').value = '';
     return searchUrl(bookName);
 }
 const searchUrl = searchText => {
-    fetch(`http://openlibrary.org/search.json?q="${searchText}"`)
+    fetch(`http://openlibrary.org/search.json?q=${searchText}`)
         .then(response => response.json())
         .then(data => showBookInfo(data, data.docs));
 }
