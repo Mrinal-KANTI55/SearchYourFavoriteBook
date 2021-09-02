@@ -14,7 +14,9 @@ const searchUrl = searchText => {
         .then(response => response.json())
         .then(data => showBookInfo(data, data.docs));
 }
+//use it for show massage or not
 const visibleMassage=showOrNot=>document.getElementById('noResult').style.display=showOrNot;
+//use it for search authors name
 const author_names = name => {
   if(typeof(name)==='undefined'){
     return name='Unknown author';
@@ -22,6 +24,7 @@ const author_names = name => {
     return name;
   }
 };
+//use it for search publish year 
 const publishYear= year=>{
   if(typeof(year)==='undefined'){
     return year='Unknown year';
