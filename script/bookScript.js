@@ -1,4 +1,4 @@
-// javascript  cover_i https://openlibrary.org/dev/docs/api/search  mangerbata  10909258
+//take book name from user
 const getBookName = () => {
     const bookName = document.getElementById('searchText').value;
     if(!bookName){
@@ -8,6 +8,7 @@ const getBookName = () => {
       return searchUrl(bookName);
     }
 }
+//fetch the url for search the book
 const searchUrl = searchText => {
     fetch(`https://openlibrary.org/search.json?q=${searchText}`)
         .then(response => response.json())
