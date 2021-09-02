@@ -2,7 +2,9 @@
 const getBookName = () => {
   const bookName = document.getElementById('searchText').value;
   if (!bookName) {
-    alert('please enter book name')
+    visibleBookInformation('none');
+    visibleMassage('block');
+    document.getElementById('noResult').innerText='Please First Enter Any Book Name';
   } else {
     document.getElementById('searchText').value = '';
     return searchUrl(bookName);
@@ -16,6 +18,8 @@ const searchUrl = searchText => {
 }
 //use it for show massage or not
 const visibleMassage = showOrNot => document.getElementById('noResult').style.display = showOrNot;
+//use it it need book information
+const visibleBookInformation = showOrNot => document.getElementById('showDetail').style.display = showOrNot;
 //use it for search authors name
 const author_names = name => {
   if (typeof (name) === 'undefined') {
@@ -42,6 +46,7 @@ const coverImage = image => {
 }
 //here it shows all books information
 const showBookInfo = (count, info) => {
+  visibleBookInformation('grid');
   visibleMassage('none');
   const bookBlock = document.getElementById('showDetail');
   bookBlock.textContent = '';
